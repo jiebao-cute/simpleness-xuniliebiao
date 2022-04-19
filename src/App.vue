@@ -1,28 +1,41 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Content :listData="data" :itemSize="100">
+
+    </Content>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+import Content from "./components/Content";
+let d = [];
+for(let i = 0; i < 1000;i++){
+  d.push({id:i,value:i})
 }
+export default {
+  name: "App",
+  components: {
+    Content
+  },
+  data(){
+    return{
+      data:d
+    }
+  },
+
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+  margin:0;
+}
+#app{
+  height:100%;
 }
 </style>
